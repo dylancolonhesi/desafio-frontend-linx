@@ -1,13 +1,19 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Navigate } from "react-router-dom";
 
 import './style.css'
 
 function Details(props) {
 
+    const [goToHome, setGoToHome] = React.useState(false);
+
+    if (goToHome) {
+        return <Navigate to="/brewery-details" />;
+      }
+
     return (
         <div className="brewery-box">
-            <div className="brewery-data">
+            <div className="brewery-data" onClick={() => setGoToHome(true)} >
             <div className="container-info">
                     <h2>{props.name}</h2>
                     <p>{props.street}</p>

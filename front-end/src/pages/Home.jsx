@@ -6,11 +6,13 @@ import Header from '../components/Header/Header';
 import api from '../api';
 import Footer from '../components/Footer/Footer';
 import Pagination from '../components/Pagination/Pagination';
+import { useNavigate } from "react-router-dom";
 
 function Home() {
     const [breweries, setBreweries] = useState([]);
     const [itemPerPage, setItemPerPage] = useState(9);
     const [currentPage, setCurrentPage] = useState(0);
+    
 
     const pages = Math.ceil(breweries.length / itemPerPage);
     const startIndex = currentPage * itemPerPage;

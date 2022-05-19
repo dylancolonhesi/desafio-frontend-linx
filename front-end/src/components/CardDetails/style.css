@@ -27,5 +27,6 @@ a {
     padding: 5px 0px 8px;
     color: black;
     font-weight: bold;
+    cursor: pointer;
   }
   
