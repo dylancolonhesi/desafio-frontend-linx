@@ -1,0 +1,31 @@
+.brewery-card-details {
+    padding-top: 30px;
+    padding-left: 127px;
+}
+
+.brewery-box-detail {
+    width: 86%;
+    margin: 9px 9px 14px 9px;
+    font-family: sans-serif;
+    display: inline-block;
+}
+
+.brewery-data-detail {
+    background-color: white;
+    box-shadow: 10px;
+    box-shadow: 0px 6px 8px #00000029;
+    display: grid;
+}
+
+.container-detail{
+    padding: 8px 9px 9px 19px;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 5px 0px 8px;
+    color: black;
+    font-weight: bold;
+  }
+  
