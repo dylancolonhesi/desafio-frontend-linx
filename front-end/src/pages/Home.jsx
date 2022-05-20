@@ -5,19 +5,9 @@ import Header from '../components/Header/Header';
 
 import api from '../api';
 import Footer from '../components/Footer/Footer';
-import Pagination from '../components/Pagination/Pagination';
-import { useNavigate } from "react-router-dom";
 
 function Home() {
     const [breweries, setBreweries] = useState([]);
-    const [itemPerPage, setItemPerPage] = useState(9);
-    const [currentPage, setCurrentPage] = useState(0);
-    
-
-    const pages = Math.ceil(breweries.length / itemPerPage);
-    const startIndex = currentPage * itemPerPage;
-    const endIndex = startIndex + itemPerPage;
-    const currentItems = breweries.slice(startIndex, endIndex)
 
     useEffect(() => {
         async function fetchBreweries() {
@@ -32,7 +22,7 @@ function Home() {
             <Header />
             <FilterByType />
             <div className="brewery-cards">
-                {currentItems.map((brewery) => (
+                {breweries.map((brewery) => (
                     <BreweryCard
                         id={brewery.id}
                         name={brewery.name}
@@ -45,7 +35,6 @@ function Home() {
                     />
                 ))}
             </div>
-            <Pagination pages={pages} setCurrentPage={setCurrentPage}/>
             <Footer/>
         </>
     );

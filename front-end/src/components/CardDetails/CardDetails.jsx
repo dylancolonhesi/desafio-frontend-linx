@@ -2,7 +2,7 @@ import React from 'react'
 
 import './style.css'
 
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 
 function CardDetails(props) {
@@ -19,8 +19,9 @@ function CardDetails(props) {
             <a  onClick={() => setGoToHome(true)} className="previous">&#8249; Back</a>
                 <div className="brewery-data-detail">
                     <div className="container-detail">
-                        <h2>{props.name}</h2>
-                        <p>Type: {props.type}</p>
+                        <h1>{props.name}</h1>
+                        <span>Type: {props.type}</span>
+                        <br/>
                         <span>Street: {props.street}</span>
                         <br />
                         <span>City: {props.city}</span>

@@ -9,15 +9,17 @@ import { useParams } from 'react-router-dom';
 function Details() {
 
     const [brewery, setBrewery] = useState({});
-    const { id } = useParams();
+    const {id} = useParams();
 
     useEffect(() => {
-        async function fetchBreweries() {
-            const resposta = await api.get("/madtree-brewing-cincinnati");
+        async function getBreweryById(){
+            const resposta = await api.get(`/${id}`);
             setBrewery(resposta.data);
         }
-        fetchBreweries();
-    }, []);
+        if(id){
+            getBreweryById();
+        }
+    },[])
 
     return (
         <>
