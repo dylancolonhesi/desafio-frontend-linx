@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import './style.css'
 
@@ -7,7 +7,7 @@ import { Navigate } from "react-router-dom";
 
 function CardDetails(props) {
 
-    const [goToHome, setGoToHome] = React.useState(false);
+    const [goToHome, setGoToHome] = useState(false);
 
     if (goToHome) {
         return <Navigate to="/brewery-home" />;

@@ -16,7 +16,7 @@ function Home() {
         }
         fetchBreweries();
     }, []);
-
+    
     return (
         <>
             <Header />

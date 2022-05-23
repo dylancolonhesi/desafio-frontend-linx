@@ -1,18 +1,34 @@
 import React, { useState } from 'react'
 import { Navigate } from "react-router-dom";
 import api from '../../api';
-import Detalhe from '../../pages/Details';
+import DetailsPage from '../../pages/Details';
 
 import './style.css'
 
 function Details(props) {
 
-    const [goToHome, setGoToHome] = React.useState(false);
+    const [goToHome, setGoToHome] = useState(false);
     const [brewery, setBrewery] = useState({});
 
     if (goToHome) {
-        return <Navigate to={`/brewery-details/${props.id}`} element={Detalhe} />;
+        return <Navigate to={`/brewery-details/${props.id}`} element={DetailsPage} />;
       }
+
+     function renderElement(){
+        if(props.type === 'micro'){
+            return <button style={{background: "#03bb85"}}className="brewery-type" id="brewery-type-btn" >{props.type}</button>
+
+        } else if (props.type === 'contract') {
+            return <button style={{background: "black"}}className="brewery-type" id="brewery-type-btn" >{props.type}</button>
+        } else if (props.type === 'brewpub') {
+            return <button style={{background: "yellow"}}className="brewery-type" id="brewery-type-btn" >{props.type}</button>
+        } else if (props.type === 'regional') {
+            return <button style={{background: "blue"}}className="brewery-type" id="brewery-type-btn" >{props.type}</button>
+        }  else if (props.type === 'planning') {
+            return <button style={{background: "grey"}}className="brewery-type" id="brewery-type-btn" >{props.type}</button>
+        }
+        return null;
+     }
 
 
     function putBreweryDetails(e){
@@ -28,9 +44,9 @@ function Details(props) {
             website:brewery.website_url,
             phone:brewery.phone
         }).then(resposta => {
-            if(resposta.status == 200){
+            if(resposta.status === 200){
                 console.log("Encontrada.");
-            }else if(resposta.status == 404){
+            }else if(resposta.status === 404){
                 console.log("Não encontramos.");
             }
         })
@@ -49,7 +65,8 @@ function Details(props) {
                     <p>{props.phone}</p>
                     <hr />
                 </div>
-                <button className="brewery-type" >{props.type}</button>
+                {renderElement()}
+                                    
             </div>
         </div>
     );

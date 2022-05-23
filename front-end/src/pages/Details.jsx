@@ -9,7 +9,7 @@ import { useParams } from 'react-router-dom';
 function Details() {
 
     const [brewery, setBrewery] = useState({});
-    const {id} = useParams();
+    const { id } = useParams();
 
     useEffect(() => {
         async function getBreweryById(){
