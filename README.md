@@ -5,7 +5,7 @@
 ### **Brewery DB** é uma aplicação front-end que representa informações públicas sobre cervejarias, cidreiras e lojas de garrafas.
 
 ## Instalação
-**Clone ou faça download do projeto, abra o diretório raiz no VS Code, e no terminal execute**:
+**Clone ou faça download do projeto, abra o diretório e em /front-end, execute no terminal o seguinte comando**:
 ```
 npm install
 ```
